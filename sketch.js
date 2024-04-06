@@ -38,13 +38,14 @@ function draw() {
   tearColor = color(209,93,96)
 
   //sky background 
+  if (probRainTest > 10 ) {
+    skyColor = color(220,44, 20)
+  } else if (probRainTest <= 10) {
+    skyColor = color(220,44,95)
+  }
   fill (skyColor)
  // console.log (probRainTest)
   rect(0,0,400)
-  if (probRainTest > 10 ) {
-    skyColor = color(220,44, 20)
-  }else if (probRainTest< 10){
-    (skyColor = color(220,44,95))}
     
   //i tried to make an if then statement for it to make the sky color lose brightness if there is a higher chance of preciptiation for that day but it doesnt seem to be working/changing
 
@@ -54,6 +55,11 @@ function draw() {
   circle(width/2, height/2, 300)
   
   
+  if (currentRain > 0) {
+    tearColor = color(209,93,96)
+   } else if (currentRain <= 0){
+     tearColor = color(0, 0, 0, 0); //Adding a fourth argument to make the color transparent
+   }
   //tears
   fill (tearColor)
   //left
@@ -61,11 +67,7 @@ function draw() {
   //right
   rect (250,200,20,300)
   
-  if (currentRain > 0) {
-   tearColor = color(209,93,96)
-  } else if (currentRain < 0){
-    tearColor = color(0);
-  }
+
    
   // i tried to make an if then statement for the tears to only show if it was raining and not if it wasnt
   //i would also like to try making it change with the different amounts of the rain 
